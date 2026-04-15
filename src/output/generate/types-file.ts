@@ -17,7 +17,7 @@ export function createTypesFile(opts: {
   const imports = getTypesFileImports(dbTypeName, propsConfig)
   const properties = getTypesFileProperties(propsConfig, customPropsConfig)
   const queryTypes = getQueryTypes(dbTypeName, propsConfig)
-  const content = `import { WithOptional, Join, PathsToStringProps } from '../../core/types/helper.types'
+  const content = `import type { WithOptional, Join, PathsToStringProps } from '../../core/types/helper.types'
 ${imports}
 
 export interface ${dbTypeName}Response extends WithOptional<Omit<DatabaseObjectResponse, 'properties'>, 'title'| 'description'| 'is_inline'| 'url'| 'public_url'> {
@@ -43,14 +43,14 @@ function getTypesFileImports(dbTypeName: string, propsConfig: ConfigFileProperti
   const uniqueImports = Array.from(new Set(imports)).sort()
 
   return (
-    `import {\nDatabaseObjectResponse,
+    `import type {\nDatabaseObjectResponse,
 StringRequest,
 ` +
     uniqueImports.join(',\n') +
     ',\n' +
     getQueryFilterTypeImports(propsConfig) +
     `\n} from '../../core/types/notion-api.types'
-import { ${constVarName}_PROPS_TO_IDS } from './constants'`
+import type { ${constVarName}_PROPS_TO_IDS } from './constants'`
   )
 }
 

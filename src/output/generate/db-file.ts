@@ -5,10 +5,10 @@ import { saveContentToFile } from '../file-utils'
 export function createDBFile(opts: { dbPath: string; fileName: string; dbTypeName: string; dbId: string }) {
   const { dbPath, fileName, dbTypeName, dbId } = opts
   const constVarName = makeConstVarName(dbTypeName)
-  const content = `import { ${dbTypeName}Response, ${dbTypeName}Query, ${dbTypeName}QueryResponse } from './types'
-import { ${dbTypeName}PatchDTO } from './patch.dto'
-import { GenericDatabaseClass, DatabaseOptions } from '../../core/src/generic-db'
-import { ${constVarName}_PROPS_TO_TYPES, ${constVarName}_PROPS_TO_IDS, ${dbTypeName}DTOProperties } from './constants'
+  const content = `import type { ${dbTypeName}Response, ${dbTypeName}Query, ${dbTypeName}QueryResponse } from './types'
+import type { ${dbTypeName}PatchDTO } from './patch.dto'
+import { GenericDatabaseClass, type DatabaseOptions } from '../../core/src/generic-db'
+import { ${constVarName}_PROPS_TO_TYPES, ${constVarName}_PROPS_TO_IDS, type ${dbTypeName}DTOProperties } from './constants'
 
 export class ${dbTypeName}Database extends GenericDatabaseClass<
   ${dbTypeName}Response,

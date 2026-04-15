@@ -51,8 +51,8 @@ function getDTOFileImports(dbTypeName: string, propsConfig: ConfigFileProperties
   const uniqueImports = Array.from(new Set(imports)).sort()
 
   return (
-    `import { ${dbTypeName}Response } from "./types"
-import { UpdatePageBodyParameters,\n` +
+    `import type { ${dbTypeName}Response } from "./types"
+import type { UpdatePageBodyParameters,\n` +
     uniqueImports.join(',\n') +
     `\n} from '../../core/types/notion-api.types'`
   )

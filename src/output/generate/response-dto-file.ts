@@ -83,7 +83,7 @@ ${code}
 }
 
 function getDTOFileImports(dbTypeName: string) {
-  return `import { ${dbTypeName}Response } from "./types"`
+  return `import type { ${dbTypeName}Response } from "./types"`
 }
 
 function getDTOConstructorFileCode(dbPropsConfig: ConfigFilePropertiesConfig) {
