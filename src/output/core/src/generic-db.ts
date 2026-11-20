@@ -14,7 +14,7 @@ import {
   notionPageApiURL,
   notionBlockChildrenApiURL,
 } from './notion-urls'
-import pThrottle, type { ThrottleConfig } from './p-throttle'
+import pThrottle, { type ThrottleConfig } from './p-throttle'
 
 export type DatabaseOptions = {
   // firebaseSecret: string
